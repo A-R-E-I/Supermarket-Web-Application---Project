@@ -2,18 +2,23 @@ from flask import Flask, render_template, request, redirect
 import os.path
 from os import path
 
+global whichfilename;
+whichfilename = "LoginAccounts.doc";
+
 app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template("AdminUser.html")
+    return render_template("ExtractInfo.html")
 
 @app.route("/info",methods=["POST"])
 def GetInfo():
-    Adaccount = request.form.get("btnAdmin")
-    Uaccount = request.form.get("btnUser")
+    global username
+    global userpasswd
+    username = request.form.get("txtusername")
+    userpasswd= request.form.get("txtpassword")
     if(username == "" or userpasswd == ""):
-        return render_template("GetInformation.html");
+        return render_template("ExtractInfo.html");
     else:
         CreateCheckFile();
         Infofilename = open(whichfilename,"r");
