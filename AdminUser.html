@@ -5,11 +5,15 @@
 		<script src="\static\AccountSelect.js"></script>
 	</head>
 	<body>
+	<form action="/select" method="post">
 		<div id="Account">
+			<label>Enter 1 for admin ad 2 for User account.</label>
 			<table id="Account">
 				<tr>
-					<td><button id="btnAdmin">Admin</button></td>
-					<td><button id="btnUser">User</button></td>
+					<td><input id="txtaccount"></td>
+				</tr>
+				<tr>
+					<td><button id="btnenter">Submit</button></td>
 				</tr>
 			</table>
 		</div>

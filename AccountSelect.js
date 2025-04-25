@@ -1,13 +1,24 @@
-window.addEventListener("load",InitControls);
 window.addEventListener("load",addListener);
+window.addEventListener("load",InitControls);
+
+function InitControls()
+{
+	document.getElementById("txtaccount").textContent = "";
+	document.getElementById("txtaccount").focus();
+}
 
 function addListener()
 {
-	document.getElementById("btnsubmit").addEventListener("click",CheckInfo);
+	document.getElementById("btnenter").addEventListener("click",CheckAccount);
 }
 
-function CheckInfo()
+function CheckAccount()
 {
-	document.getElementById("btnAdmin").value = 1;
-	document.getElementById("btnUser").value = 2;
+	var whichaccount
+	whichaccount = document.getElementById("txtaccount").value;
+	if (whichaccount == "" || str(whichaccount) == "")
+	{
+		alert("Information is missing!");
+		InitControls();
+	}
 }
